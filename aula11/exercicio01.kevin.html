@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário Simples do Kevin</title>
+    <style>
+        body { font-family: Arial; max-width: 400px; margin: 20px auto; }
+        input { display: block; margin-bottom: 10px; padding: 8px; width: 100%; }
+        button { padding: 8px 15px; margin-top: 10px; }
+        p { font-size: 14px; margin-top: 5px; }
+        .error { color: red; }
+        .success { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<input type="text" id="nome" placeholder="Seu nome" onkeyup="mostrarContagem()">
+<p id="contador">0 caracteres</p>
+
+<input type="email" id="email" placeholder="Seu e-mail" onblur="verificarEmail()">
+<p id="emailMsg" class="error"></p>
+
+<button onclick="enviarDados()">Enviar</button>
+<p id="mensagem" class="success"></p>
+
+<script>
+    function mostrarContagem() {
+        var campNome = document.getElementById('nome');
+        var contador = document.getElementById('contador');
+        contador.textContent = campNome.value.length + " caracteres";
+    }
+
+    function verificarEmail() {
+        var campEmail = document.getElementById('email');
+        var msgEmail = document.getElementById('emailMsg');
+        msgEmail.textContent = campEmail.value === "" ? "Por favor, preencha o e-mail" : "";
+    }
+
+    function enviarDados() {
+        var campNome = document.getElementById('nome');
+        var campEmail = document.getElementById('email');
+        var mensagem = document.getElementById('mensagem');
+        
+        mensagem.textContent = "Obrigado, " + campNome.value + "! Seus dados foram enviados com sucesso.";
+    }
+</script>
+
+</body>
+</html>

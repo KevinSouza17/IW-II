@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário HIPER ESTILIZADO do Kevin</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            border: 10px double #ff0;
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.7);
+            transform: rotate(0.5deg);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        input {
+            display: block;
+            margin-bottom: 25px;
+            padding: 15px;
+            width: 100%;
+            border: 5px dashed #ff00ff;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff0066;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            transition: all 0.5s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        input:focus {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 1);
+            border: 5px dotted #00ffcc;
+            outline: none;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.9);
+        }
+
+        input::placeholder {
+            color: #9900ff;
+            font-style: italic;
+        }
+
+        button {
+            padding: 20px 40px;
+            margin: 30px auto;
+            display: block;
+            background: linear-gradient(45deg, #ff00cc, #00ffcc);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #00ffcc, #ff00cc);
+        }
+
+        button:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .error {
+            color: #ff0000;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            background-color: rgba(255, 200, 200, 0.7);
+            border: 3px solid #ff0000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            background-color: rgba(200, 255, 200, 0.7);
+            border: 3px solid #00ff00;
+            font-size: 22px;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: #ff0000; border-color: #ff0000; }
+            14% { color: #ff7f00; border-color: #ff7f00; }
+            28% { color: #ffff00; border-color: #ffff00; }
+            42% { color: #00ff00; border-color: #00ff00; }
+            57% { color: #0000ff; border-color: #0000ff; }
+            71% { color: #4b0082; border-color: #4b0082; }
+            85% { color: #9400d3; border-color: #9400d3; }
+            100% { color: #ff0000; border-color: #ff0000; }
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 42px;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+            margin-bottom: 30px;
+            font-family: 'Press Start 2P', cursive;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        #contador {
+            color: #00ffff;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 50px;
+            padding: 5px 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>FORMULÁRIO MEGA SHOW</h1>
+
+    <input type="text" id="nome" placeholder="DIGITE SEU NOME AQUI!!!" onkeyup="mostrarContagem()">
+    <p id="contador">0 CARACTERES UAU!!!</p>
+
+    <input type="email" id="email" placeholder="E-MAIL BEM LEGAL!!!" onblur="verificarEmail()">
+    <p id="emailMsg" class="error"></p>
+
+    <button onclick="enviarDados()">ENVIAR AGORA!!!</button>
+    <p id="mensagem" class="success"></p>
+
+    <script>
+        function mostrarContagem() {
+            var campNome = document.getElementById('nome');
+            var contador = document.getElementById('contador');
+            contador.textContent = campNome.value.length + " CARACTERES UAU!!!";
+            
+            // Efeito extra
+            if(campNome.value.length > 20) {
+                contador.style.color = "#ff0000";
+                contador.style.transform = "scale(1.2)";
+            } else {
+                contador.style.color = "#00ffff";
+                contador.style.transform = "scale(1)";
+            }
+        }
+
+        function verificarEmail() {
+            var campEmail = document.getElementById('email');
+            var msgEmail = document.getElementById('emailMsg');
+            
+            if(campEmail.value === "") {
+                msgEmail.textContent = "ERROOOO!!! PREENCHE O E-MAIL AÍ, CAMPEÃO!";
+                campEmail.style.border = "5px dashed #ff0000";
+                campEmail.style.animation = "shake 0.5s";
+            } else {
+                msgEmail.textContent = "";
+                campEmail.style.border = "5px dashed #00ff00";
+            }
+        }
+
+        function enviarDados() {
+            var campNome = document.getElementById('nome');
+            var campEmail = document.getElementById('email');
+            var mensagem = document.getElementById('mensagem');
+            
+            if(campNome.value === "" || campEmail.value === "") {
+                mensagem.textContent = "FALTA COISA AÍ, AMIGÃO! PREENCHE TUDO DIREITO!";
+                mensagem.className = "error";
+                return;
+            }
+            
+            mensagem.textContent = "UHUUUU!!! " + campNome.value.toUpperCase() + ", SEUS DADOS FORAM ENVIADOS COM SUCESSO MÁXIMO!!! 🎉🎉🎉";
+            mensagem.className = "success";
+            
+            // Efeito de confete
+            document.body.style.background = "linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc)";
+        }
+    </script>
+    <!-- com o DeepSeek eu tomei um amaço -->
+</body>
+</html>
